@@ -45,8 +45,8 @@ import java.util.stream.Stream;
 public class StatisticsTransmitter {
 
     private static final Log log = Log.getLog(StatisticsTransmitter.class);
-    public static final String STATS_HOSTS = /*<STATS-PROD-URL*/"stats.dbeaver.com"/*/>*/;
-    private static final String URL_TEMPLATE = "https://%s/send-statistics";
+    public static final String STATS_HOSTS = /*<STATS-PROD-URL*/"localhost:8002"/*/>*/;
+    private static final String URL_TEMPLATE = "http://%s/send-statistics";
 
     private final String endpoint;
 
