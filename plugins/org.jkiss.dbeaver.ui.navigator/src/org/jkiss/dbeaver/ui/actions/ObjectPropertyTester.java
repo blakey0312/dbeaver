@@ -1,6 +1,6 @@
 /*
  * DBeaver - Universal Database Manager
- * Copyright (C) 2010-2025 DBeaver Corp and others
+ * Copyright (C) 2010-2026 DBeaver Corp and others
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -292,7 +292,7 @@ public class ObjectPropertyTester extends PropertyTester {
         if (node instanceof DBNProject && DBWorkbench.isDistributed()) {
             return false;
         }
-        if (node instanceof DBNDatabaseNode dbNode){
+        if (node instanceof DBNDatabaseNode dbNode) {
             if (dbNode.isVirtual() || !workspace.hasRealmPermission(RMConstants.PERMISSION_METADATA_EDITOR)) {
                 // Can't create virtual objects
                 return false;
@@ -341,6 +341,10 @@ public class ObjectPropertyTester extends PropertyTester {
                 return false;
             }
             return objectMaker.canCreateObject(container.getValueObject());
+        }
+        if (node instanceof DBNDataSource) {
+            // We always can create datasource
+            return node.getOwnerProject().hasRealmPermission(RMConstants.PERMISSION_PROJECT_DATASOURCES_EDIT);
         }
         if (DBNUtils.isReadOnly(node)) {
             return false;
