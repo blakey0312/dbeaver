@@ -70,7 +70,7 @@ public class DBeaverTopLevelCommand extends AbstractTopLevelCommand {
     private List<String> filesToOpenParams;
 
 
-    @CommandLine.Option(names = {"-con", "-connect", "-ds-spec", "--datasource-specification"}, arity = "1", split = ",",
+    @CommandLine.Option(names = {"-con", "-connect", "-ds-spec", "--datasource-specification"}, arity = "1",
         description = "Connects to a specified database")
     private List<String> connectionSpecs;
 
